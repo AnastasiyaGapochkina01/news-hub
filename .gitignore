@@ -1,3 +1,6 @@
+news-hub
+news-hub.pub
+logs/
 .venv/
 .env
 __pycache__/
