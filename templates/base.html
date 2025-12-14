@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>News Hub</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <nav>
+        {% if current_user.is_authenticated %}
+            <button onclick="goTo('/feeds')">Feeds</button>
+            <button onclick="goTo('/list')">Favorites</button>
+            <button onclick="goTo('/logout')">Logout</button>
+        {% else %}
+            <button onclick="goTo('/login')">Login</button>
+            <button onclick="goTo('/register')">Register</button>
+        {% endif %}
+    </nav>
+    <div class="container">
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="flash">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        {% block content %}{% endblock %}
+    </div>
+    <script src="/static/script.js"></script>
+</body>
+</html>
+

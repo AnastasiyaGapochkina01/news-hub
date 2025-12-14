@@ -1,0 +1,8 @@
+Flask
+Flask-Login
+Werkzeug
+mysql-connector-python
+cryptography
+requests
+python-dotenv
+

@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Последние новости криптовалют</h2>
+<div id="status"></div>
+{% for item in news %}
+<div class="news-item">
+    <div class="news-title">{{ item.title }}</div>
+    <div class="news-desc">{{ item.description }}</div>
+    <button class="add-btn" onclick="addToFavorite('{{ item.title }}', '{{ item.description }}', '{{ item.url }}')">Add</button>
+</div>
+{% endfor %}
+{% endblock %}
+
