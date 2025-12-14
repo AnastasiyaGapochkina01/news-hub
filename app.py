@@ -49,6 +49,7 @@ def load_user(user_id):
 def index():
     return render_template('index.html')
 
+
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     if request.method == 'POST':
@@ -71,7 +72,7 @@ def register():
             cursor.close()
             conn.close()
     
-    return render_template('register.html')
+    return render_template('login.html', action='register')
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():

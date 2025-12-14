@@ -1,6 +1,12 @@
 {% extends "base.html" %}
 {% block content %}
 <div class="login-form">
+    <h2>{% if action == 'register' %}Регистрация{% else %}Вход{% endif %}</h2>
+    <form method="POST">
+        <input type="text" name="username" placeholder="Имя пользователя" required>
+        <input type="password" name="password" placeholder="Пароль" required>
+        <button type="submit">{% if action == 'register' %}Зарегистрироваться{% else %}Войти{% endif %}</button>
+    </form>
     {% if action == 'login' %}
         <p style="text-align: center; margin-top: 1rem;">
             <a href="{{ url_for('register') }}" style="color: #fff;">Нет аккаунта? Регистрация</a>

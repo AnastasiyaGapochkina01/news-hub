@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Избранные новости ({{ favorites|length }})</h2>
+<div id="status"></div>
+
+{% if favorites %}
+    {% for item in favorites %}
+    <div class="fav-item">
+        <div style="flex: 1;">
+            <strong>{{ item.title[:60] }}{% if item.title|length > 60 %}...{% endif %}</strong>
+            <br>
+            <small style="color: #ccc;">
+                {{ item.created_at.strftime('%d.%m.%Y %H:%M') }} 
+                <a href="{{ item.url }}" target="_blank" style="color: #fff; text-decoration: underline;">🔗</a>
+            </small>
+        </div>
+    </div>
+    {% endfor %}
+{% else %}
+    <div class="news-item" style="text-align: center; padding: 2rem; color: #ccc;">
+        <h3>⭐ Избранных новостей нет</h3>
+        <p>Перейдите в <a href="/feeds" style="color: #fff;">Feeds</a> и добавьте новости кнопкой "Add"</p>
+    </div>
+{% endif %}
+{% endblock %}
+
